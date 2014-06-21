@@ -1,0 +1,11 @@
+main:
+  listen: 127.0.0.1:<%= @twemproxy_port %>
+  hash: fnv1a_64
+  distribution: ketama
+  auto_eject_hosts: true
+  redis: true
+  server_retry_timeout: 2000
+  server_failure_limit: 1
+  servers:
+   - 127.0.0.1:<%= @server1_port %>:1
+   - 127.0.0.1:<%= @server2_port %>:1
