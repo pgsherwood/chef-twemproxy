@@ -1,10 +1,15 @@
 # twemproxy-cookbook
 
-TODO: Enter the cookbook description here.
+This cookbook installs [twemproxy](https://github.com/twitter/twemproxy) to act as a proxy for 2 redis server instances.
 
 ## Supported Platforms
 
-TODO: List your supported platforms.
+Ubuntu 12.04
+
+## Requirements
+
+### APT Packages
+- redis-server
 
 ## Attributes
 
@@ -16,10 +21,34 @@ TODO: List your supported platforms.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['twemproxy']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
+    <td><tt>['twemproxy']['version']</tt></td>
+    <td>String</td>
+    <td>The version of twemproxy to install</td>
+    <td><tt>0.3.0</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['twemproxy']['url']</tt></td>
+    <td>String</td>
+    <td>The url for downloading the tarfile release of twemproxy</td>
+    <td><tt>https://twemproxy.googlecode.com/files</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['twemproxy']['redis_server1_port']</tt></td>
+    <td>String</td>
+    <td>The port number for the first redis server</td>
+    <td><tt>6379</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['twemproxy']['redis_server2_port']</tt></td>
+    <td>String</td>
+    <td>The port number for the second redis server</td>
+    <td><tt>6380</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['twemproxy']['twemproxy_port']</tt></td>
+    <td>String</td>
+    <td>The port number for twemproxy</td>
+    <td><tt>23559</tt></td>
   </tr>
 </table>
 
@@ -48,4 +77,4 @@ Include `twemproxy` in your node's `run_list`:
 
 ## License and Authors
 
-Author:: YOUR_NAME (<YOUR_EMAIL>)
+Author:: Greg Sherwood (<pgscode@gmail.com>)
