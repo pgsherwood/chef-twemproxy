@@ -6,8 +6,8 @@ end
 
 describe user('redis') do
   it { should exist }
-  it { should belong_to_group 'redis'}
-  it { should have_login_shell '/bin/false'}
+  it { should belong_to_group 'redis' }
+  it { should have_login_shell '/bin/false' }
 end
 
 describe service('redis-server') do
@@ -25,7 +25,6 @@ describe service('nutcracker') do
   it { should be_running }
 end
 
-
 describe port(6379) do
   it { should be_listening.with('tcp') }
 end
@@ -37,6 +36,3 @@ end
 describe port(23559) do
   it { should be_listening.with('tcp') }
 end
-
-
-

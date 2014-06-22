@@ -1,12 +1,12 @@
-require 'chefspec'  
+require 'chefspec'
 require_relative 'spec_helper'
 
-describe 'twemproxy::default' do  
+describe 'twemproxy::default' do
   let(:chef_run) { ChefSpec::Runner.new.converge(described_recipe) }
 
   it 'includes the apt recipe' do
     expect(chef_run).to include_recipe('apt')
-  end  
+  end
 
   it 'installs redis-server package' do
     expect(chef_run).to install_package('redis-server')
@@ -28,8 +28,8 @@ describe 'twemproxy::default' do
 
   it 'creates the /var/run/nutcracker directory' do
     expect(chef_run).to create_directory('/var/run/nutcracker').with(
-      owner: "redis",
-      group: "redis"
+      owner: 'redis',
+      group: 'redis'
     )
   end
 
@@ -41,14 +41,8 @@ describe 'twemproxy::default' do
     expect(chef_run).to create_template('/etc/init.d/nutcracker')
   end
 
-
-
   it 'enables and starts the nutcracker service' do
     expect(chef_run).to enable_service('nutcracker')
     expect(chef_run).to start_service('nutcracker')
   end
-  
-
-
-
 end
